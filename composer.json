@@ -1,0 +1,48 @@
+{
+    "name": "delights/pest-plugin-auto-helpers",
+    "description": "// TODO: Description",
+    "keywords": [
+        "php",
+        "pest",
+        "unit",
+        "test",
+        "testing",
+        "plugin",
+        "helpers"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": "^7.3",
+        "delights/extended-tokens": "dev-master",
+        "pestphp/pest": "^0.2",
+        "pestphp/pest-plugin": "^0.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Felix\\AutoHelpers\\": "src/"
+        },
+        "files": [
+            "src/Autoload.php"
+        ]
+    },
+    "require-dev": {
+        "pestphp/pest-dev-tools": "dev-master"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "sort-packages": true,
+        "preferred-install": "dist"
+    },
+    "scripts": {
+        "lint": "rector process src && php-cs-fixer fix -v",
+        "test:lint": "php-cs-fixer fix -v --dry-run && rector process src --dry-run",
+        "test:types": "phpstan analyse --ansi",
+        "test:unit": "pest --colors=always",
+        "test": [
+            "@test:lint",
+            "@test:types",
+            "@test:unit"
+        ]
+    }
+}
