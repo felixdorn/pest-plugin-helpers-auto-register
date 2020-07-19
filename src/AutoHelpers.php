@@ -1,13 +1,12 @@
 <?php
 
-
 namespace Felix\AutoHelpers;
 
-
 use BadMethodCallException;
+use Pest\TestSuite;
 use PHPUnit\Framework\TestCase;
 
-class AutoHelpers extends TestCase
+final class AutoHelpers extends TestCase
 {
     /** @var string[] */
     private $__helpers;
@@ -17,7 +16,7 @@ class AutoHelpers extends TestCase
         parent::__construct($name, $data, $dataName);
 
         $this->__helpers = (new HelpersLocator(
-            __DIR__ . '/../tests/Helpers.php'
+            TestSuite::getInstance()->rootPath . '/tests/Helpers.php'
         ))->find();
     }
 
@@ -27,8 +26,6 @@ class AutoHelpers extends TestCase
             return $name(...$arguments);
         }
 
-        throw new BadMethodCallException(sprintf(
-            'Method %s::%s does not exist.', TestCase::class, $name
-        ));
+        throw new BadMethodCallException(sprintf('Method %s::%s does not exist.', TestCase::class, $name));
     }
 }
