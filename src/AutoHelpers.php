@@ -6,6 +6,7 @@ use BadMethodCallException;
 use Pest\TestSuite;
 use PHPUnit\Framework\TestCase;
 
+/** @noRector Rector\SOLID\Rector\Class_\FinalizeClassesWithoutChildrenRector */
 class AutoHelpers extends TestCase
 {
     /** @var string[] */
