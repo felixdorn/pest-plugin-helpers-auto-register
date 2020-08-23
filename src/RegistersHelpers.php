@@ -5,18 +5,17 @@ declare(strict_types=1);
 namespace Felix\AutoHelpers;
 
 use BadMethodCallException;
+use Closure;
 use Pest\TestSuite;
 use PHPUnit\Framework\TestCase;
 
 /** @noRector Rector\SOLID\Rector\Class_\FinalizeClassesWithoutChildrenRector */
-class AutoHelpers extends TestCase
+class RegistersHelpers extends TestCase
 {
     /** @var string[] */
     private $__helpers;
 
     /**
-     * AutoHelpers constructor.
-     *
      * @param mixed[] $data
      * @param string  $dataName
      */
@@ -37,7 +36,7 @@ class AutoHelpers extends TestCase
     public function __call(string $name, $arguments)
     {
         if (is_callable($name) && in_array($name, $this->__helpers, true)) {
-            return $name(...$arguments);
+            return Closure::fromCallable($name)->bindTo($this)(...$arguments);
         }
 
         throw new BadMethodCallException(sprintf('Method %s::%s does not exist.', TestCase::class, $name));

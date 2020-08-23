@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Felix\AutoHelpers\AutoHelpers;
+use Felix\AutoHelpers\RegistersHelpers;
 use Pest\Plugin;
 
-Plugin::uses(AutoHelpers::class);
+Plugin::uses(RegistersHelpers::class);
