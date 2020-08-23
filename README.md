@@ -1,3 +1,7 @@
+# Pest Helpers Auto-Register
+![CI status](https://github.com/felixdorn/pest-plugin-auto-helpers/workflows/Tests/badge.svg)
+![CI status](https://github.com/felixdorn/pest-plugin-auto-helpers/workflows/Formats/badge.svg)
+
 ## Getting started
 
 ### Installation
@@ -7,6 +11,8 @@ You can run this command :
 ```bash
 composer require delights/pest-plugin-auto-helpers
 ```
+
+## Usage
 
 Once, you installed it, every function in your `tests/Helpers.php` file will be available as a method in your test case.
 
