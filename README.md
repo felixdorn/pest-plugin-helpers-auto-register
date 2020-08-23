@@ -22,3 +22,20 @@ composer require delights/pest-plugin-helpers-auto-register
 Once, you installed it, every function in your `tests/Helpers.php` file will be available as a method in your test case.
 
 **If a method and a helper have the same name, the method will be called.**
+
+```php
+// tests/Helpers.php
+function assertReallyEqual($a, $b) {
+    $this->assertEquals($a, $b);
+    $this->assertEquals($a, $b);
+}
+
+// tests/SomeTest.php
+
+it('tests')
+    ->assertReallyEqual(1, 1);
+
+it('tests but better', function () {
+    $this->assertReallyEqual(1, 1);
+});
+```
