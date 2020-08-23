@@ -1,5 +1,5 @@
 {
-    "name": "delights/pest-plugin-auto-helpers",
+    "name": "delights/pest-plugin-helpers-auto-register",
     "description": "// TODO: Description",
     "keywords": [
         "php",
@@ -13,7 +13,8 @@
     "license": "MIT",
     "require": {
         "php": "^7.3",
-        "delights/extended-tokens": "dev-master",
+
+        "delights/extended-tokens": "^0.1.2",
         "pestphp/pest": "^0.2",
         "pestphp/pest-plugin": "^0.2"
     },
