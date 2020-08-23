@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Felix\AutoHelpers;
 
 use BadMethodCallException;
@@ -12,6 +14,12 @@ class AutoHelpers extends TestCase
     /** @var string[] */
     private $__helpers;
 
+    /**
+     * AutoHelpers constructor.
+     *
+     * @param mixed[] $data
+     * @param string  $dataName
+     */
     public function __construct(?string $name = null, array $data = [], $dataName = '')
     {
         parent::__construct($name, $data, $dataName);
@@ -21,9 +29,14 @@ class AutoHelpers extends TestCase
         ))->find();
     }
 
-    public function __call($name, $arguments)
+    /**
+     * @param mixed[] $arguments
+     *
+     * @return mixed
+     */
+    public function __call(string $name, $arguments)
     {
-        if (in_array($name, $this->__helpers, true)) {
+        if (is_callable($name) && in_array($name, $this->__helpers, true)) {
             return $name(...$arguments);
         }
 

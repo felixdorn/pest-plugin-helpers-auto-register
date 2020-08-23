@@ -1,5 +1,3 @@
-**WIP**
-
 ## Getting started
 
 ### Installation
@@ -9,3 +7,10 @@ You can run this command :
 ```bash
 composer require delights/pest-plugin-auto-helpers
 ```
+
+Once, you installed it, every function in your `tests/Helpers.php` file will be available as a method in your test case.
+
+We do not support namespaced functions in `Helpers.php`. However, as of PHP8 and this [rfc](https://wiki.php.net/rfc/namespaced_names_as_token) this will be possible.
+
+If a method and a helper have the same name, the method will be called.
+

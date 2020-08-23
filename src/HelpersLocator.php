@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Felix\AutoHelpers;
 
 use Delight\ExtendedTokens\ExtendedTokens;
@@ -17,16 +19,25 @@ final class HelpersLocator
             return;
         }
 
-        $this->code = file_get_contents($file);
+        $content = file_get_contents($file);
+
+        if ($content === false) {
+            $content = '';
+        }
+
+        $this->code = $content;
     }
 
+    /**
+     * @return string[]
+     */
     public function find(): array
     {
         $functions = array_map(function ($token) {
             return $token[1];
         }, array_filter(
             (new ExtendedTokens())->parse($this->code),
-            function ($token) {
+            function ($token): bool {
                 return $token[0] === T_FUNCTION_NAME;
             }
         ));
