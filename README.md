@@ -1,6 +1,10 @@
-# Pest Helpers Auto-Register
+<div style="text-align: center">
+
+# Register PEST helpers as a TestCase method.
 ![CI status](https://github.com/felixdorn/pest-plugin-auto-helpers/workflows/Tests/badge.svg)
 ![CI status](https://github.com/felixdorn/pest-plugin-auto-helpers/workflows/Formats/badge.svg)
+
+</div>
 
 ## Getting started
 
@@ -9,7 +13,7 @@ This library can be installed using composer, if you don't have it already, [dow
 
 You can run this command :
 ```bash
-composer require delights/pest-plugin-auto-helpers
+composer require delights/pest-plugin-helpers-auto-register
 ```
 
 ## Usage
