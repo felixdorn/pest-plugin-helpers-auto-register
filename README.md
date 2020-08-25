@@ -1,3 +1,5 @@
+**This might become part of PEST's core anytime soon**
+
 <div style="text-align: center">
 
 # Register PEST helpers as a TestCase method.
