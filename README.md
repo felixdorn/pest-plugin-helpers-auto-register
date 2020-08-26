@@ -1,5 +1,5 @@
-**This might become part of PEST's core anytime soon**
-
+**This is now part of the PEST core and this plugin does not provide anymore value**
+ 
 <div style="text-align: center">
 
 # Register PEST helpers as a TestCase method.
